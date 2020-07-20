@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+<h1>Hi Kirti</h1><br>
+The percentage match for results are {{result}}%<br><br>
+<center><b><u>The matching results are as follows</u></b></center>
+{% if result == 0 %}
+    <center><h1 style="background-color:grey;padding-top:20px;padding-bottom:20px;">No results to display!!!</h1></center>
+{% else %}
+    {% for title,snippet,link in array %}
+        <p style="background-color:grey;padding-left:85px;">
+            <br>{{title}}<br>{{snippet}}<br>{{link}}
+            <br><br>
+        </p>
+    {% endfor %}
+{% endif %}
+<br><br><br>
+<center>
+{% if result > 50 %}
+            <form method="POST" target="_blank">{% csrf_token %}
+                <input type="text" name="reason" placeholder="Input a reason" style="width:500px" required>
+                <input type="submit" value="ACCEPT" name="sub_1" style="width:350px" onclick="return confirm('Do you still want to insert the data in database?')">
+            </form>
+            <br>
+            <form method="POST" target="_blank">{% csrf_token %}
+                <input type="submit" value="REJECT" name="sub_2" style="width:350px;">
+                <input type="submit" value="MODIFY THE QUESTION" name="sub_3" style="width:350px;">
+            </form><br><br>
+        {% else %}
+            <form method="POST" target="_blank">{% csrf_token %}
+                <input name="reason" style="display:none;">
+                <input type="submit" value="ACCEPT" name="sub_1" style="width:350px;">
+                <input type="submit" value="REJECT" name="sub_2" style="width:350px;">
+                <input type="submit" value="MODIFY THE QUESTION" name="sub_3" style="width:350px;">
+            </form><br><br>
+        {% endif %}
+</center>
+</body>
+</html>

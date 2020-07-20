@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data inserted!!</title>
+</head>
+<body>
+<center>
+    <h1 style="padding-top:150px;color:green">Your results have been stored in the database</h1>
+    <h3 style="padding-top:70px">Do you want to check another question?</h3>
+    <form method="POST" target="_blank">{% csrf_token %}
+        <input type="submit" value="START WITH A NEW QUESTION" name="sub_3" style="width:1000px;height:50px"><br><br>
+        <input type="submit" value="DON'T START WITH A NEW QUESTION" name="sub_4" style="width:1000px;height:50px">
+    </form>
+</center>
+</body>
+</html>

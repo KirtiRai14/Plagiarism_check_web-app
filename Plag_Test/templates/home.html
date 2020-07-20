@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plagiarism Tester Homepage</title>
+</head>
+<body>
+<center style="padding-top:200px;">
+    <!--   {{name}}   -->
+    <!--<form method="POST">{% csrf_token %}--                 autocomplete="off">-->
+    <form method="POST">{% csrf_token %}
+        Enter your Question: <input type="text" name="s-query" required><br>
+        Option 1: <input type="text" name="opt1" required><br>
+        Option 2: <input type="text" name="opt2" required><br>
+        Option 3: <input type="text" name="opt3" placeholder="(If applicable)"><br>
+        Option 4: <input type="text" name="opt4" placeholder="(If applicable)"><br>
+        Option 5: <input type="text" name="opt5" placeholder="(If applicable)"><br><br><br>
+        <input type="submit" value="Check Plagiarism" name="submit">
+    </form>
+</center>
+</body>
+</html>
