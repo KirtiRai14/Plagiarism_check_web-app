@@ -37,9 +37,10 @@ def pc_check(query_in, opt1, opt2, opt3="", opt4="", opt5=""):
             disp_title.append(title)
             disp_snippet.append(snippet)
             disp_link.append(link)
-            total_count += 1
-        else:
-            total_count += 1
+            #total_count += 1
+        #else:
+            #total_count += 1
+        total_count += 1
     print("Total matched results are", match_count)
     #result_percentage = float((match_count / 10) * 100)
     result_percentage = float((match_count / (total_count-1)) * 100)

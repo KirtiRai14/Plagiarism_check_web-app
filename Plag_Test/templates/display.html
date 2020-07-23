@@ -6,15 +6,29 @@
 </head>
 <body>
 <h1>Hi Kirti</h1><br>
-The percentage match for results are {{result}}%<br><br>
-<center><b><u>The matching results are as follows</u></b></center>
+<center>
+<font style="padding-right:150px">The percentage match for database results are {{db_result_percent}}%</font>
+The percentage match for web-search results are {{result}}%<br><br>
+<b><u>The matching results are as follows</u></b></center>
+<h2>DATABASE RESULTS</h2>
+{% if database_results %}
+    {% for d in database_results %}
+        <p style="background-color:lightgrey;padding-left:85px;">
+            <br>Id is:- {{d.Q_id}}    Question is:- {{d.Question}}
+            <br>Options are:- {{d.Option_1}} {{d.Option_2}} {{d.Option_3}} {{d.Option_4}} {{d.Option_5}}<br><br>
+        </p>
+    {% endfor %}
+{% else %}
+    <center><h1 style="background-color:lightgrey;padding-top:20px;padding-bottom:20px;">No database results to display!!!</h1></center>
+{% endif %}
+<br><br>
+<h2>WEB-SEARCH RESULTS</h2>
 {% if result == 0 %}
-    <center><h1 style="background-color:grey;padding-top:20px;padding-bottom:20px;">No results to display!!!</h1></center>
+    <center><h1 style="background-color:grey;padding-top:20px;padding-bottom:20px;">No web-search results to display!!!</h1></center>
 {% else %}
     {% for title,snippet,link in array %}
         <p style="background-color:grey;padding-left:85px;">
-            <br>{{title}}<br>{{snippet}}<br>{{link}}
-            <br><br>
+            <br>{{title}}<br>{{snippet}}<br>{{link}}<br><br>
         </p>
     {% endfor %}
 {% endif %}
